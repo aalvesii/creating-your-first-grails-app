@@ -8,4 +8,11 @@ Edit `grails-app/init/org/grails/guides/BootStrap.groovy`, as shown below:
 include::{sourceDir}/grails-app/init/org/grails/guides/BootStrap.groovy[]
 ----
 
+WARNING: If you're using a Database connection like PostgreSQL or MySQL (as we'll see latter on this tutorial) you might need to run the save methods within a transaction. One way of dooing this as follows:
+[source,groovy]
+Make.withTransaction {
+  nissan.save()
+  ford.save()
+}
+
 Now restart the application, and browse to the DBConsole, you should be able to expand the three tables and see our newly created data.
